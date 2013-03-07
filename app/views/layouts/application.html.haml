@@ -1,0 +1,18 @@
+!!! XML
+!!!
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %title Inmailing
+
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+  %body
+
+    = yield
+
+    - if Rails.env == "development"
+      = javascript_include_tag "application", "data-turbolinks-track" => true
+    - elsif Rails.env == "production"
+      = javascript_include_tag "application", "data-turbolinks-track" => true
