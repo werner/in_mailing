@@ -6,19 +6,19 @@ Feature: Manage positions
   Scenario: Register new position
     Given I am on the new position page
     When I fill in "Name" with "Manager"
-    And I press "Save"
+    And I press "Create Position"
     Then I should see "Manager"
 
-  Scenario: Delete department
-    Given the following departments:
+  Scenario: Delete position
+    Given the following positions:
       |name|
       |Manager   |
       |Developer |
       |Secretary |
       |Office Boy|
-    When I delete the 3rd department
-    Then I should see the following departments:
+    When I delete the 3rd position
+    Then I should see the following positions:
       |Name|
       |Manager   |
       |Developer |
-      |Office Boy|
+      |Secretary |

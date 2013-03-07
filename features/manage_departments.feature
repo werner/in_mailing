@@ -6,7 +6,7 @@ Feature: Manage departments
   Scenario: Register new department
     Given I am on the new department page
     When I fill in "Name" with "Accounting"
-    And I press "Save"
+    And I press "Create Department"
     Then I should see "Accounting"
 
   Scenario: Delete department
@@ -21,4 +21,4 @@ Feature: Manage departments
       |Name|
       |Accounting     |
       |Human Resources|
-      |Purchasing     |
+      |IT Department  |
