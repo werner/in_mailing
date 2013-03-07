@@ -5,20 +5,20 @@ Feature: Manage departments
   
   Scenario: Register new department
     Given I am on the new department page
-    When I fill in "Name" with "name 1"
+    When I fill in "Name" with "Accounting"
     And I press "Save"
-    Then I should see "name 1"
+    Then I should see "Accounting"
 
   Scenario: Delete department
     Given the following departments:
       |name|
-      |name 1|
-      |name 2|
-      |name 3|
-      |name 4|
+      |Accounting     |
+      |Human Resources|
+      |IT Department  |
+      |Purchasing     |
     When I delete the 3rd department
     Then I should see the following departments:
       |Name|
-      |name 1|
-      |name 2|
-      |name 4|
+      |Accounting     |
+      |Human Resources|
+      |Purchasing     |
