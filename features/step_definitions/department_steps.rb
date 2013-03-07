@@ -10,7 +10,6 @@ When /^I delete the (\d+)(?:st|nd|rd|th) department$/ do |pos|
 end
 
 Then /^I should see the following departments:$/ do |expected_departments_table|
-  #expected_departments_table.diff!(tableish('table tr', 'td,th'))
   rows = find("table").all('tr')
   table = rows.map { |r| r.all('th,td').map { |c| c.text.strip } }
   expected_departments_table.diff!(table)
