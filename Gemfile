@@ -44,7 +44,7 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'cucumber-rails', :git => 'git://github.com/dbruns/cucumber-rails.git', :require => false
   gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
-  gem 'database_cleaner'
+  gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
   #gem 'debugger'
   gem 'capybara'
   gem 'launchy'

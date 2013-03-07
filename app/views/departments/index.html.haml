@@ -2,12 +2,14 @@
 
 %table
   %tr
+    %th Name
     %th
     %th
     %th
 
   - @departments.each do |department|
     %tr
+      %td= department.name
       %td= link_to 'Show', department
       %td= link_to 'Edit', edit_department_path(department)
       %td= link_to 'Destroy', department, :method => :delete, :data => { :confirm => 'Are you sure?' }
