@@ -1,19 +1,21 @@
-%h1 Listing positions
-
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - @positions.each do |position|
+- model_class = Position
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
     %tr
-      %td= position.name
-      %td= link_to 'Show', position
-      %td= link_to 'Edit', edit_position_path(position)
-      %td= link_to 'Destroy', position, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @positions.each do |position|
+      %tr
+        %td= link_to position.id, position_path(position)
+        %td= position.name
+        %td=l position.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_position_path(position), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), position_path(position), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Position', new_position_path
+= link_to t('.new', :default => t("helpers.links.new")), new_position_path, :class => 'btn btn-primary'
