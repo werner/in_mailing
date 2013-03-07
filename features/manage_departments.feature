@@ -1,7 +1,7 @@
 Feature: Manage departments
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+  In order to Manage Departments
+	As a regular user
+	I want to see default behaviour
   
   Scenario: Register new department
     Given I am on the new department page

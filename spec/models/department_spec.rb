@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Department do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Insert, Edit, and Delete Behaviour" do
+    
+  end
 end

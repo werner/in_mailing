@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :department do
+    name 'Accounting'
   end
 end
