@@ -6,7 +6,7 @@ Feature: Manage departments
   Scenario: Register new department
     Given I am on the new department page
     When I fill in "Name" with "name 1"
-    And I press "Create"
+    And I press "Save"
     Then I should see "name 1"
 
   Scenario: Delete department
