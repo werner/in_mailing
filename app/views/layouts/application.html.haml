@@ -26,14 +26,22 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") Inmailing
-          .btn-group
-            %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Main
-              %span.caret
-            %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
-              %li= link_to "Inbox", "/path1"
-              %li= link_to "Unsent", "/path2"
-              %li= link_to "Sent", "/path3"
+          .btn-toolbar
+            .btn-group
+              %button.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown"}
+                Main
+                %span.caret
+              %ul.dropdown-menu
+                %li= link_to "Inbox", "/path1"
+                %li= link_to "Unsent", "/path2"
+                %li= link_to "Sent", "/path3"
+            .btn-group
+              %button.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown"}
+                Setup
+                %span.caret
+              %ul.dropdown-menu
+                %li= link_to "Departments", departments_path
+                %li= link_to "Positions", positions_path
 
     .container
 
