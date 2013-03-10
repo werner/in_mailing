@@ -5,7 +5,10 @@ class PositionsController < StandardController
   private
     # Use callbacks to share common setup or constraints between actions.
     def setup
-      @main_url = positions_url
+      @main_path = positions_path
+      @new_path = new_position_path
+      @edit_path = lambda { |record| edit_position_path(record) }
+      @destroy_path = lambda { |record| position_path(record) }
       @model = Position
     end
 

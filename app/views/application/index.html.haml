@@ -1,0 +1,17 @@
+- model_class = @model
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:name)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @records.each do |record|
+      %tr
+        %td= record.name
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), @edit_path.call(record), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), @destroy_path.call(record), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), @new_path, :class => 'btn btn-primary'

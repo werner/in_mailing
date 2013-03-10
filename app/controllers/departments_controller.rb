@@ -5,7 +5,10 @@ class DepartmentsController < StandardController
   private
     # Use callbacks to share common setup or constraints between actions.
     def setup
-      @main_url = departments_url
+      @main_path = departments_path
+      @new_path = new_department_path
+      @edit_path = lambda { |record| edit_department_path(record) }
+      @destroy_path = lambda { |record| department_path(record) }
       @model = Department
     end
 

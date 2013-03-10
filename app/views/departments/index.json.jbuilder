@@ -1,4 +1,4 @@
-json.array!(@records) do |department|
-  json.extract! department, 
-  json.url department_url(department, format: :json)
+json.array!(@records) do |record|
+  json.extract! record, :name
+  json.url department_url(record, format: :json)
 end

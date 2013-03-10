@@ -1,4 +1,4 @@
-json.array!(@records) do |position|
-  json.extract! position, :name
-  json.url position_url(position, format: :json)
+json.array!(@records) do |record|
+  json.extract! record, :name
+  json.url position_url(record, format: :json)
 end
