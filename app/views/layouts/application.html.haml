@@ -26,11 +26,14 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") Inmailing
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+          .btn-group
+            %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Main
+              %span.caret
+            %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
+              %li= link_to "Inbox", "/path1"
+              %li= link_to "Unsent", "/path2"
+              %li= link_to "Sent", "/path3"
 
     .container
 
@@ -38,17 +41,7 @@
         .span9
           = bootstrap_flash
           = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
     
-      %footer
-        %p &copy; Company 2013
     /
       Javascripts
       \==================================================
