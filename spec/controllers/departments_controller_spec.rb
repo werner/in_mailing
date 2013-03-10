@@ -24,7 +24,7 @@ describe DepartmentsController do
   # Department. As you add validations to Department, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {  }
+    { name: 'Accounting' }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -89,14 +89,14 @@ describe DepartmentsController do
       it "assigns a newly created but unsaved department as @department" do
         # Trigger the behavior that occurs when invalid params are submitted
         Department.any_instance.stub(:save).and_return(false)
-        post :create, {:department => {  }}, valid_session
+        post :create, {:department => { "name" => "Accounting" }}, valid_session
         assigns(:department).should be_a_new(Department)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Department.any_instance.stub(:save).and_return(false)
-        post :create, {:department => {  }}, valid_session
+        post :create, {:department => { "name" => "Accounting" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -110,8 +110,8 @@ describe DepartmentsController do
         # specifies that the Department created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Department.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => department.to_param, :department => { "these" => "params" }}, valid_session
+        Department.any_instance.should_receive(:update).with({ "name" => "Human Resources" })
+        put :update, {:id => department.to_param, :department => { "name" => "Human Resources" }}, valid_session
       end
 
       it "assigns the requested department as @department" do
@@ -132,7 +132,7 @@ describe DepartmentsController do
         department = Department.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Department.any_instance.stub(:save).and_return(false)
-        put :update, {:id => department.to_param, :department => {  }}, valid_session
+        put :update, {:id => department.to_param, :department => { "name" => "Human Resources" }}, valid_session
         assigns(:department).should eq(department)
       end
 
@@ -140,7 +140,7 @@ describe DepartmentsController do
         department = Department.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Department.any_instance.stub(:save).and_return(false)
-        put :update, {:id => department.to_param, :department => {  }}, valid_session
+        put :update, {:id => department.to_param, :department => { "name" => "Human Resources" }}, valid_session
         response.should render_template("edit")
       end
     end
