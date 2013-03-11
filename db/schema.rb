@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130311001131) do
+ActiveRecord::Schema.define(version: 20130311013917) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -19,7 +19,28 @@ ActiveRecord::Schema.define(version: 20130311001131) do
     t.datetime "updated_at"
   end
 
+  create_table "mailings", force: true do |t|
+    t.date     "mailing_date"
+    t.string   "number"
+    t.string   "subject"
+    t.integer  "type_id"
+    t.integer  "status"
+    t.text     "notes"
+    t.text     "body"
+    t.date     "received_date"
+    t.date     "sent_date"
+    t.integer  "sent_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "positions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
