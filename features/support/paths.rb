@@ -17,6 +17,10 @@ module NavigationHelpers
       '/'
     when /the new department page/
       new_department_path
+    when /the new position page/
+      new_position_path
+    when /the new type page/
+      new_type_path
 
 
     # Add more mappings here.
