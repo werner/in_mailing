@@ -49,6 +49,9 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 gem 'haml-rails'
 gem 'simplecov'
