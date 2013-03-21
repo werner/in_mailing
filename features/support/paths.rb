@@ -22,7 +22,7 @@ module NavigationHelpers
     when /the new type page/
       new_type_path
     when /the new mails page/
-      new_mail_path
+      new_mailing_path
 
 
     # Add more mappings here.
