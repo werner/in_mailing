@@ -18,7 +18,7 @@ Feature: Manage Mails
     Then I should see "Important Memo!"
     And I should see "Saved"
 
-  Scenario: send a new letter
+  Scenario: send a new memo
     Given I create a Type
     Then I am on the new mails page
     When I fill in "Subject" with "Urgent Memo!"
@@ -30,3 +30,15 @@ Feature: Manage Mails
     Then I should see "Urgent Memo!"
     And I should see "Sent"
     And I should not see "Edit"
+    And I should not see "Delete"
+
+  Scenario: Should not save a send document in any way, even when
+            the user get to the edit page by the url address bar, 
+            it doesn't save, staying in the edit page
+    Given I create a Type
+    And I create a Memo with number "0001"
+    Then I am on the edit Memo page with number "0001"
+    And I press "Send"
+    When I am on the edit Memo page with number "0001"
+    And I press "Save"
+    Then I am on the edit Memo page with number "0001"

@@ -23,6 +23,8 @@ module NavigationHelpers
       new_type_path
     when /the new mails page/
       new_mailing_path
+    when /^the edit Memo page with number "(.*)"$/
+      edit_mailing_path(Mailing.where(number: $1).first.id)
 
 
     # Add more mappings here.
