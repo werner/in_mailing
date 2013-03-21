@@ -4,10 +4,12 @@ Feature: Manage Mails
 	I want to send and received Office Mails
   
   Scenario: Create a new memo
-    Given I am on the new mails page
+    Given I create a Type
+    Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
-    And I select "Memo" from "Types"
+    And I fill in "Number" with "Memo00001"
+    And I select "Memo" from "mailing_type_id"
     And I fill in "Body" with "We'll have a meeting tomorrow at 9:30 a.m."
-    And I select "Inner" from "Destination"
-    And I press "Save Mail"
+    And I select "Inner Mail" from "mailing_sent_type"
+    And I press "Save"
     Then I should see "Important Memo!"

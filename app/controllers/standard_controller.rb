@@ -19,7 +19,7 @@ class StandardController < ApplicationController
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'successfully created.' }
+        format.html { redirect_to @main_path, notice: 'successfully created.' }
         format.json { render action: 'show', status: :created, location: @record }
       else
         format.html { render action: 'new' }
@@ -31,7 +31,7 @@ class StandardController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to @record, notice: 'successfully updated.' }
+        format.html { redirect_to @main_path, notice: 'successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
