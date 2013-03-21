@@ -3,7 +3,7 @@ Feature: Manage Mails
 	As a regular user
 	I want to send and received Office Mails
   
-  Scenario: Create a new memo
+  Scenario: Save a new memo
     Given I create a Type
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
@@ -13,3 +13,4 @@ Feature: Manage Mails
     And I select "Inner Mail" from "mailing_sent_type"
     And I press "Save"
     Then I should see "Important Memo!"
+    And I should see "Saved"

@@ -1,6 +1,7 @@
 class MailingsController < StandardController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
   before_action :setup
+  before_action :set_status, only: [:create, :update]
 
   private
     def setup
@@ -16,7 +17,13 @@ class MailingsController < StandardController
     end
 
     def record_params
-      params.require(:mailing).permit(:mailing_date, :number, :subject, :type, 
+      params.require(:mailing).permit(:mailing_date, :number, :subject, :type, :status, :type_id,
                                       :notes, :body, :received_date, :sent_date, :sent_type)
+    end
+
+    def set_status
+      {"Save" => :saved, "Send" => :sent}.each {|key, value| 
+        params[:mailing][:status] = Mailing::STATUS[value] if params[:commit] == key 
+      }
     end
 end

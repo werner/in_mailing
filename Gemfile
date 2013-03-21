@@ -55,3 +55,5 @@ group :test, :development do
 end
 gem 'haml-rails'
 gem 'simplecov'
+gem 'awesome_print'
+gem 'pry'
