@@ -15,7 +15,7 @@
       %tr
         %td= record.mailing_date
         %td= record.number
-        %td= record.type
+        %td= record.type_name
         %td= record.subject
         %td= Mailing::STATUS.key(record.status).to_s.titleize
         %td
