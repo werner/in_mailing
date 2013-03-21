@@ -2,6 +2,9 @@ Feature: Manage Mails
   In order to Manage Office Documents
 	As a regular user
 	I want to send and received Office Documents
+  When I save a document it is intended to be modified later
+  but when I sent a document is going to be visible by the receiver
+  therefore should not be editable
   
   Scenario: Save a new memo
     Given I create a Type
@@ -26,3 +29,4 @@ Feature: Manage Mails
     And I press "Send"
     Then I should see "Urgent Memo!"
     And I should see "Sent"
+    And I should not see "Edit"
