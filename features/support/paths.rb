@@ -21,6 +21,8 @@ module NavigationHelpers
       new_position_path
     when /the new type page/
       new_type_path
+    when /the new mails page/
+      new_mail_path
 
 
     # Add more mappings here.
