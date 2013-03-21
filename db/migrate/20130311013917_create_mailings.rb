@@ -1,7 +1,6 @@
 class CreateMailings < ActiveRecord::Migration
   def change
     create_table :mailings do |t|
-      t.date       :mailing_date
       t.string     :number
       t.string     :subject
       t.references :type

@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20130311013917) do
   end
 
   create_table "mailings", force: true do |t|
-    t.date     "mailing_date"
     t.string   "number"
     t.string   "subject"
     t.integer  "type_id"

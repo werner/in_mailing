@@ -4,7 +4,7 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:mailing_date)
+      %th Date
       %th= model_class.human_attribute_name(:number)
       %th= model_class.human_attribute_name(:type)
       %th= model_class.human_attribute_name(:subject)
@@ -13,7 +13,7 @@
   %tbody
     - @records.each do |record|
       %tr
-        %td= record.mailing_date
+        %td= record.created_at.to_date
         %td= record.number
         %td= record.type_name
         %td= record.subject
