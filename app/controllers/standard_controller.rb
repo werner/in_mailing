@@ -1,5 +1,7 @@
 class StandardController < ApplicationController
 
+  before_filter :authorize
+
   def index
     @records = @model.all
   end
@@ -20,7 +22,7 @@ class StandardController < ApplicationController
     respond_to do |format|
       if @record.save
         format.html { redirect_to @main_path, notice: 'successfully created.' }
-        format.json { render action: 'show', status: :created, location: @record }
+        format.json { head :no_content }
       else
         format.html { render action: 'new' }
         format.json { render json: @record.errors, status: :unprocessable_entity }

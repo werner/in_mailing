@@ -1,5 +1,5 @@
 class MailingsController < StandardController
-  before_action :set_position, only: [:show, :edit, :update, :destroy]
+  before_action :set_mailing, only: [:show, :edit, :update, :destroy]
   before_action :setup
   before_action :set_status, only: [:create, :update]
 
@@ -12,7 +12,7 @@ class MailingsController < StandardController
       @model = Mailing
     end
 
-    def set_position
+    def set_mailing
       @record = Mailing.find(params[:id])
     end
 

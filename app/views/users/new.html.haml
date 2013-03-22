@@ -1,0 +1,40 @@
+- @page_title = "UserAuth | Signup"
+.Sign_Form
+  %h1 Sign Up
+  = form_for @record, :html => { :class => 'form-horizontal' } do |f|
+    .control-group 
+      .control-label
+        Login: 
+      .controls
+        = f.text_field :login, :class => 'text_field'
+    .control-group 
+      .control-label
+        Name: 
+      .controls
+        = f.text_field :name, :class => 'text_field'
+    .control-group 
+      .control-label
+        LastName: 
+      .controls
+        = f.text_field :lastname, :class => 'text_field'
+    .control-group 
+      .control-label
+        Password:
+      .controls
+        = f.password_field :password, :class => 'text_field'
+    .control-group 
+      .control-label
+        Password Confirmation:
+      .controls
+        = f.password_field :password_confirmation, :class => 'text_field'
+    .control-group
+      .control-label
+        Department:
+      .controls
+        = f.select :department_id, Department.all.collect {|department| [department.name, department.id]}
+    = f.submit :Signup, :class => 'btn btn-primary'
+  - if @record.errors.any?
+    %ul.Signup_Errors
+    - for message_error in @record.errors.full_messages
+      %li
+        = message_error

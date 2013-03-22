@@ -4,6 +4,8 @@ Inmailing::Application.routes.draw do
   resources :departments
   resources :types
   resources :mailings
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
