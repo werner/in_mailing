@@ -6,14 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize
-    unless User.find_by_id(session[:user_id])
-      redirect_to root_url
-    end
+    redirect_to root_url unless User.find(session[:user_id])
   end
 
-  private
-
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
 end

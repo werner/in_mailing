@@ -35,11 +35,12 @@
             %li= link_to "Types", types_path
 
     .container
-
       .row
         .span9
           = bootstrap_flash
-          = yield
+        %p
+          = user_and_department
+        = yield
     
     /
       Javascripts
