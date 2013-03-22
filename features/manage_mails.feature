@@ -6,6 +6,10 @@ Feature: Manage Mails
   but when I sent a document is going to be visible by the receiver
   therefore should not be editable
   
+  Background:
+    Given I am an authorized user
+    Then I should see "Logged in!"
+  
   Scenario: Save a new memo
     Given I create a Type
     Then I am on the new mails page

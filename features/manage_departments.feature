@@ -2,6 +2,10 @@ Feature: Manage departments
   In order to Manage Departments
 	As a regular user
 	I want to see default behaviour
+
+  Background:
+    Given I am an authorized user
+    Then I should see "Logged in!"
   
   Scenario: Register new department
     Given I am on the new department page
