@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130311013917) do
+ActiveRecord::Schema.define(version: 20130322154743) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20130311013917) do
     t.date     "received_date"
     t.date     "sent_date"
     t.integer  "sent_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mroutes", force: true do |t|
+    t.integer  "department_id"
+    t.integer  "mailing_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

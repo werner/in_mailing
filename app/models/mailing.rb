@@ -1,4 +1,7 @@
 class Mailing < ActiveRecord::Base
+
+  has_many :mroutes
+
   belongs_to :type
   delegate :name, to: :type, prefix: true
 
