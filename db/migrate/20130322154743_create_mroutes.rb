@@ -1,7 +1,7 @@
 class CreateMroutes < ActiveRecord::Migration
   def change
     create_table :mroutes do |t|
-      t.references :users
+      t.references :user
       t.references :mailing
       t.integer :status
 

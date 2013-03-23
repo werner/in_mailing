@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20130322155842) do
   end
 
   create_table "mroutes", force: true do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.integer  "mailing_id"
     t.integer  "status"
     t.datetime "created_at"

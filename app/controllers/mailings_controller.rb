@@ -17,7 +17,7 @@ class MailingsController < StandardController
     end
 
     def record_params
-      params.require(:mailing).permit(:mailing_date, :number, :subject, :type, :status, :type_id,
+      params.require(:mailing).permit(:mailing_date, :number, :subject, :type, :status, :type_id, :user_id,
                                       :notes, :body, :received_date, :sent_date, :sent_type)
     end
 
