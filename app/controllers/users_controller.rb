@@ -7,7 +7,7 @@ class UsersController < StandardController
 
     respond_to do |format|
       if @record.save
-        redirect_to root_url, :notice => "Signed Up!"
+        format.html { redirect_to root_url, :notice => "Signed Up!" }
       else
         format.html { render action: 'new' }
         format.json { render json: @record.errors, status: :unprocessable_entity }

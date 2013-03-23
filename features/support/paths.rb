@@ -15,16 +15,18 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /the new department page/
+    when /^the new department page$/
       new_department_path
-    when /the new position page/
+    when /^the new position page$/
       new_position_path
-    when /the new type page/
+    when /^the new type page$/
       new_type_path
-    when /the new mails page/
+    when /^the new mails page$/
       new_mailing_path
     when /^the edit Memo page with number "(.*)"$/
       edit_mailing_path(Mailing.where(number: $1).first.id)
+    when /^the sent documents page$/
+      sent_path
 
 
     # Add more mappings here.

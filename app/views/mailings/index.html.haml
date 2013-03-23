@@ -20,8 +20,8 @@
         %td= record.type_name
         %td= record.subject
         %td= record.status_to_sym.to_s.titleize
-        %td= record.user_name
-        %td= record.department_name
+        %td= record.receiver_user_name
+        %td= record.receiver_department_name
         %td
           - unless record.status_to_sym == :sent
             = link_to t('.edit', :default => t("helpers.links.edit")), 

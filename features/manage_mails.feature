@@ -20,7 +20,7 @@ Feature: Manage Mails
     Then I should see "Important Memo!"
     And I should see "Saved"
 
-  Scenario: send a new memo
+  Scenario: Send a new memo
     Given I am on the new mails page
     When I fill in "Subject" with "Urgent Memo!"
     And I fill in "Number" with "Memo00002"
