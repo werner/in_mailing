@@ -9,6 +9,6 @@ class Mroute < ActiveRecord::Base
   end
 
   def department_name
-    user.try(:department).try(:name)
+    user.try(:department_name)
   end
 end
