@@ -2,7 +2,13 @@ class Mailing < ActiveRecord::Base
   attr_accessor :receiver_id, :sender_id
 
   scope :sent, -> (current_user) { 
-    joins(:mroutes).where("mroutes.user_id = ? and mroutes.status = ?", current_user, Mroute::STATUS[:sender]) 
+    joins(:mroutes).where("mailings.status = ? and mroutes.user_id = ? and mroutes.status = ?", 
+                          Mailing::STATUS[:sent], current_user, Mroute::STATUS[:sender]) 
+  }
+
+  scope :unsent, -> (current_user) { 
+    joins(:mroutes).where("mailings.status = ? and mroutes.user_id = ? and mroutes.status = ?", 
+                          Mailing::STATUS[:saved], current_user, Mroute::STATUS[:sender]) 
   }
 
   scope :inbox, -> (current_user) { 

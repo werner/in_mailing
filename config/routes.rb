@@ -14,6 +14,7 @@ Inmailing::Application.routes.draw do
   root to: 'welcome#index'
 
   get "sent" => "mailings#index", type: "sent"
+  get "unsent" => "mailings#index", type: "unsent"
   get "inbox" => "mailings#index", type: "inbox"
 
   # Example of regular route:

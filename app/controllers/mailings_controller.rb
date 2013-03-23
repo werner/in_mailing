@@ -6,6 +6,8 @@ class MailingsController < StandardController
   def index
     @records = if params[:type] == "sent"
                  Mailing.sent(current_user)
+               elsif params[:type] == "unsent"
+                 Mailing.unsent(current_user)
                elsif params[:type] == "inbox"
                  Mailing.inbox(current_user)
                end
