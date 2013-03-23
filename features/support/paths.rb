@@ -27,6 +27,8 @@ module NavigationHelpers
       edit_mailing_path(Mailing.where(number: $1).first.id)
     when /^the sent documents page$/
       sent_path
+    when /^the unsent documents page$/
+      unsent_path
 
 
     # Add more mappings here.

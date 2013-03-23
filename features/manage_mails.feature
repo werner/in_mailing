@@ -17,7 +17,8 @@ Feature: Manage Mails
     And I fill in "Body" with "We'll have a meeting tomorrow at 9:30 a.m."
     And I select "Inner Mail" from "mailing_sent_type"
     And I press "Save"
-    Then I should see "Important Memo!"
+    When I am on the unsent documents page
+    And I should see "Important Memo!"
     And I should see "Saved"
 
   Scenario: Send a new memo
