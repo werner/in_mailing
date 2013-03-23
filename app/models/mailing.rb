@@ -15,7 +15,7 @@ class Mailing < ActiveRecord::Base
     joins(:mroutes).where("mroutes.user_id = ? and mroutes.status = ?", current_user, Mroute::STATUS[:receiver]) 
   }
 
-  has_many :mroutes
+  has_many :mroutes, dependent: :destroy
   has_many :users, :through => :mroutes
 
   belongs_to :type
