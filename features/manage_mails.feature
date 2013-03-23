@@ -11,11 +11,9 @@ Feature: Manage Mails
     Then I should see "Logged in!"
   
   Scenario: Save a new memo
-    Given I create a Type
-    Then I am on the new mails page
+    Given I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I fill in "Number" with "Memo00001"
-    And I select "Memo" from "mailing_type_id"
     And I fill in "Body" with "We'll have a meeting tomorrow at 9:30 a.m."
     And I select "Inner Mail" from "mailing_sent_type"
     And I press "Save"
@@ -23,11 +21,9 @@ Feature: Manage Mails
     And I should see "Saved"
 
   Scenario: send a new memo
-    Given I create a Type
-    Then I am on the new mails page
+    Given I am on the new mails page
     When I fill in "Subject" with "Urgent Memo!"
     And I fill in "Number" with "Memo00002"
-    And I select "Memo" from "mailing_type_id"
     And I fill in "Body" with "We need to meet right now!"
     And I select "Outer Mail" from "mailing_sent_type"
     And I press "Send"
@@ -39,8 +35,7 @@ Feature: Manage Mails
   Scenario: Should not save a send document in any way, even when
             the user get to the edit page by the url address bar, 
             it doesn't save, staying in the edit page
-    Given I create a Type
-    And I create a Memo with number "0001"
+    Given I create a Memo with number "0001"
     Then I am on the edit Memo page with number "0001"
     And I press "Send"
     When I am on the edit Memo page with number "0001"
