@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize
-    redirect_to root_url unless User.find(session[:user_id])
+    redirect_to log_in_path unless User.where(id: session[:user_id]).first
   end
 
 end
