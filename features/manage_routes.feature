@@ -4,7 +4,7 @@ Feature: Manage routes
   I want to see a receiver for the document
   
   Background:
-    Given I am an authorized user
+    Given I logged in as "Jhon Michaels"
     Then I should see "Logged in!"
 
   Scenario: check the receiver
