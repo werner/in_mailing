@@ -4,7 +4,8 @@ Feature: Manage positions
 	I want to see default behaviour
   
   Background:
-    Given I am an authorized user
+    Given I create an user named "Jhon" and lastname "Michaels"
+    And I logged in as "Jhon Michaels"
     Then I should see "Logged in!"
   
   Scenario: Register new position

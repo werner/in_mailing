@@ -7,7 +7,8 @@ Feature: Manage Mails
   therefore should not be editable
   
   Background:
-    Given I am an authorized user
+    Given I create an user named "Jhon" and lastname "Michaels"
+    And I logged in as "Jhon Michaels"
     Then I should see "Logged in!"
   
   Scenario: Save a new memo

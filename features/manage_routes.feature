@@ -4,12 +4,14 @@ Feature: Manage routes
   I want to see a receiver for the document
   
   Background:
-    Given I logged in as "Jhon Michaels"
+    Given I create an user named "Jhon" and lastname "Michaels"
+    And I logged in as "Jhon Michaels"
     Then I should see "Logged in!"
 
   Scenario: check the receiver in Sent Documents and
             the doc in sent path
-    Given I create an user named "Bob" and lastname "Doe" and the "Accounting" department for the user
+    Given I create an user named "Bob" and lastname "Doe"
+    And I create a department named "Accounting" for "Bob Doe"
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I fill in "Number" with "Memo00001"
@@ -20,7 +22,8 @@ Feature: Manage routes
     And I should see "Bob Doe"
 
   Scenario: check the document sent in inbox from receiver
-    Given I create an user named "Bob" and lastname "Doe" and the "Human Resources" department for the user
+    Given I create an user named "Bob" and lastname "Doe"
+    And I create a department named "Human Resources" for "Bob Doe"
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I fill in "Number" with "Memo00001"

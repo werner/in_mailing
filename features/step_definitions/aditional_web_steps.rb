@@ -1,6 +1,12 @@
-Given /^I create an user named "(.*?)" and lastname "(.*?)" and the "(.*?)" department for the user$/ do |user, lastname, department_name|
+Given /^I create an user named "(.*?)" and lastname "(.*?)"$/i do |user, lastname|
+  FactoryGirl.create(:user, name: user, lastname: lastname)
+end
+
+Given /^I create a department named "(.*?)" for "(.*?)"$/ do |department_name, full_name|
+  first_name = full_name.split(" ").first
+  last_name = full_name.split(" ").last
   department = FactoryGirl.create(:department, name: department_name)
-  user = FactoryGirl.create(:user, name: user, lastname: lastname, department: department)
+  User.where(name: first_name, lastname: last_name).update_all(department_id: department.id)
 end
 
 Given /^I am an authorized user$/i do
@@ -20,7 +26,7 @@ end
 Given /^I logged in as "(.*?)"$/i do |full_name|
   first_name = full_name.split(" ").first
   last_name = full_name.split(" ").last
-  user = FactoryGirl.create(:user, name: first_name, lastname: last_name )
+  user = User.where(name: first_name, lastname: last_name).first
   visit "/log_in"
   fill_in("login", :with => user.login)
   fill_in("password", :with => "12345")
