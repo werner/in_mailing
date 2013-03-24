@@ -27,6 +27,3 @@ Feature: Manage routes
     And I select "Bob Doe" from "mailing_receiver_id"
     And I press "Send"
     Then I logged out
-    Then I should be on the sent documents page
-    And I should see "Accounting"
-    And I should see "Bob Doe"

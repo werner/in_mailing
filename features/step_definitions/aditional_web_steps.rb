@@ -26,3 +26,7 @@ Given /^I logged in as "(.*?)"$/i do |full_name|
   fill_in("password", :with => "12345")
   click_button("LogIn")
 end
+
+Then /^I logged out$/i do
+  click_link("LogOut")
+end
