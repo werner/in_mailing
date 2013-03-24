@@ -4,12 +4,8 @@ class MailingsController < StandardController
   before_action :set_status, only: [:create, :update]
 
   def index
-    @records = if params[:type] == "sent"
-                 Mailing.sent(current_user)
-               elsif params[:type] == "unsent"
-                 Mailing.unsent(current_user)
-               elsif params[:type] == "inbox"
-                 Mailing.inbox(current_user)
+    @records = if params[:type] == "sent" || params[:type] == "unsent" || params[:type] == "inbox"
+                 Mailing.send(params[:type].to_sym, current_user)
                end
   end
 
