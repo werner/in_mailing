@@ -14,19 +14,17 @@ Feature: Manage routes
     And I create a department named "Accounting" for "Bob Doe"
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
-    And I fill in "Number" with "Memo00001"
     And I select "Bob Doe" from "mailing_receiver_id"
     And I press "Send"
     Then I should be on the sent documents page
     And I should see "Accounting"
     And I should see "Bob Doe"
 
-  Scenario: check the document sent in inbox from receiver
+  Scenario: check the document sent in inbox's receiver
     Given I create an user named "Bob" and lastname "Doe"
     And I create a department named "Human Resources" for "Bob Doe"
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
-    And I fill in "Number" with "Memo00001"
     And I select "Bob Doe" from "mailing_receiver_id"
     And I press "Send"
     Then I logged out

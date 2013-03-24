@@ -22,8 +22,6 @@ class Mailing < ActiveRecord::Base
 
   delegate :name, to: :type, prefix: true, allow_nil: true
 
-  validates_presence_of :number, :message => "Insert a number"
-
   STATUS = {saved: 1, sent: 2}
 
   before_create do

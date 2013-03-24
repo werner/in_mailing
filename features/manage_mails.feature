@@ -14,7 +14,6 @@ Feature: Manage Mails
   Scenario: Save a new memo
     Given I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
-    And I fill in "Number" with "Memo00001"
     And I fill in "Body" with "We'll have a meeting tomorrow at 9:30 a.m."
     And I select "Inner Mail" from "mailing_sent_type"
     And I press "Save"
@@ -25,7 +24,6 @@ Feature: Manage Mails
   Scenario: Send a new memo
     Given I am on the new mails page
     When I fill in "Subject" with "Urgent Memo!"
-    And I fill in "Number" with "Memo00002"
     And I fill in "Body" with "We need to meet right now!"
     And I select "Outer Mail" from "mailing_sent_type"
     And I press "Send"
