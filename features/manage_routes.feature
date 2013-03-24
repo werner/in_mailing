@@ -7,13 +7,26 @@ Feature: Manage routes
     Given I logged in as "Jhon Michaels"
     Then I should see "Logged in!"
 
-  Scenario: check the receiver in Sent Documents
+  Scenario: check the receiver in Sent Documents and
+            the doc in sent path
     Given I create an user named "Bob" and lastname "Doe" and the "Accounting" department for the user
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I fill in "Number" with "Memo00001"
     And I select "Bob Doe" from "mailing_receiver_id"
     And I press "Send"
+    Then I should be on the sent documents page
+    And I should see "Accounting"
+    And I should see "Bob Doe"
+
+  Scenario: check the document sent in inbox from receiver
+    Given I create an user named "Bob" and lastname "Doe" and the "Human Resources" department for the user
+    Then I am on the new mails page
+    When I fill in "Subject" with "Important Memo!"
+    And I fill in "Number" with "Memo00001"
+    And I select "Bob Doe" from "mailing_receiver_id"
+    And I press "Send"
+    Then I logged out
     Then I should be on the sent documents page
     And I should see "Accounting"
     And I should see "Bob Doe"
