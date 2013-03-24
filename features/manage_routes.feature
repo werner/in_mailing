@@ -27,3 +27,9 @@ Feature: Manage routes
     And I select "Bob Doe" from "mailing_receiver_id"
     And I press "Send"
     Then I logged out
+    When I logged in as "Bob Doe"
+    Then I should see "Logged in!"
+    And I should see "Bob Doe"
+    And I should see "Human Resources"
+    Then I am on the inbox documents page
+    And I should see "Important Memo!"

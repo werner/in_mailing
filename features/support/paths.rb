@@ -29,6 +29,8 @@ module NavigationHelpers
       sent_path
     when /^the unsent documents page$/
       unsent_path
+    when /^the inbox documents page$/
+      inbox_path
 
 
     # Add more mappings here.
