@@ -40,12 +40,16 @@ class Mailing < ActiveRecord::Base
     Mailing::STATUS.key(self.status)
   end
 
+  def receiver_routes
+    mroutes.where(status: Mroute::STATUS[:receiver]).first
+  end
+
   def receiver_user_name
-    mroutes.where(status: Mroute::STATUS[:receiver]).first.try(:user_name)
+    receiver_routes.try(:user_name)
   end
 
   def receiver_department_name
-    mroutes.where(status: Mroute::STATUS[:receiver]).first.try(:department_name)
+    receiver_routes.try(:department_name)
   end
 
   def self.next_number
