@@ -5,7 +5,7 @@
         .control-group
           = f.label :number, :class => 'control-label'
           .controls
-            = @record.number
+            = Mailing.next_number
         .control-group
           = f.label :type, :class => 'control-label'
           .controls

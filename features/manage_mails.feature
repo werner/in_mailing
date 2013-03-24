@@ -35,9 +35,9 @@ Feature: Manage Mails
   Scenario: Should not save a send document in any way, even when
             the user get to the edit page by the url address bar, 
             it doesn't save, staying in the edit page
-    Given I create a Memo with number "0001"
-    Then I am on the edit Memo page with number "0001"
+    Given I create a Memo
+    Then I am on the edit Memo page with number "00001"
     And I press "Send"
-    When I am on the edit Memo page with number "0001"
+    When I am on the edit Memo page with number "00001"
     And I press "Save"
-    Then I am on the edit Memo page with number "0001"
+    Then I am on the edit Memo page with number "00001"

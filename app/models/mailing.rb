@@ -26,6 +26,7 @@ class Mailing < ActiveRecord::Base
 
   before_create do
     mroutes.build user_id: @sender_id, status: Mroute::STATUS[:sender]
+    self.number = self.class.next_number
   end
 
   before_save do
@@ -45,5 +46,30 @@ class Mailing < ActiveRecord::Base
 
   def receiver_department_name
     mroutes.where(status: Mroute::STATUS[:receiver]).first.try(:department_name)
+  end
+
+  def self.next_number
+
+    generate_integer_number = lambda do |number|
+      if number.nil?
+        1
+      else
+        number.gsub(/[a-z]*/,"").to_i + 1
+      end
+    end
+
+    next_integer_number = generate_integer_number.call(last.try(:number))
+
+
+    generate_zeros = lambda do |x|
+      {4=>10, 3=>100, 2=>1000, 1=>10000}.map { |k,v|
+        if x > 10000
+          return ""
+        elsif x < v
+          return k.times.collect { "0" }.join
+        end
+      }
+    end
+    generate_zeros.call(next_integer_number).to_s + next_integer_number.to_s
   end
 end
