@@ -13,6 +13,13 @@ GIT
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
 
+GIT
+  remote: https://github.com/bradphelan/jasminerice.git
+  revision: f404da53bb05d0f0f01976182cbc95e918d4cf70
+  specs:
+    jasminerice (0.1.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -229,6 +236,7 @@ DEPENDENCIES
   database_cleaner!
   factory_girl_rails (~> 4.0)
   haml-rails
+  jasminerice!
   jbuilder (~> 1.0.1)
   jquery-rails
   launchy

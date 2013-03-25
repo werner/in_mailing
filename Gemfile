@@ -42,16 +42,17 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
-  gem 'cucumber-rails', :git => 'git://github.com/dbruns/cucumber-rails.git', :require => false
-  gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
-  gem 'database_cleaner', :git => 'git://github.com/bmabey/database_cleaner.git'
+  gem "cucumber-rails", :git => "git://github.com/dbruns/cucumber-rails.git", :require => false
+  gem "cucumber-rails-training-wheels" # some pre-fabbed step definitions  
+  gem "database_cleaner", :git => "git://github.com/bmabey/database_cleaner.git"
   #gem 'debugger'
-  gem 'capybara'
-  gem 'launchy'
+  gem "capybara"
+  gem "launchy"
   gem "factory_girl_rails", "~> 4.0"
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "meta_request"
+  gem "jasminerice", :git => "https://github.com/bradphelan/jasminerice.git"
 end
 gem 'haml-rails'
 gem 'simplecov'
