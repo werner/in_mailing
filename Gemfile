@@ -53,6 +53,8 @@ group :test, :development do
   gem "binding_of_caller"
   gem "meta_request"
   gem "jasminerice", :git => "https://github.com/bradphelan/jasminerice.git"
+  gem "guard-jasmine"
+  gem "rb-inotify", "~> 0.9"
 end
 gem 'haml-rails'
 gem 'simplecov'
