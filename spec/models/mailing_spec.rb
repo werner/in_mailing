@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe Mailing do
   def make_pair_docs(first_number, second_number)
-    document1 = FactoryGirl.create(:mailing)
+    user = FactoryGirl.create(:user)
+    document1 = FactoryGirl.create(:mailing, receiver_id: [user.id])
     document1.number = first_number
     document1.save
-    document2 = FactoryGirl.create(:mailing)
+    document2 = FactoryGirl.create(:mailing, receiver_id: [user.id])
     document2.number.should eq(second_number)
   end
 

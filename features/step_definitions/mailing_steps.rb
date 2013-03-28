@@ -3,5 +3,6 @@ When /^I create a Type$/ do
 end
 
 Given /^I create a Memo$/ do
-  FactoryGirl.create(:mailing)
+  user = FactoryGirl.create(:user)
+  FactoryGirl.create(:mailing, receiver_id: [user.id])
 end

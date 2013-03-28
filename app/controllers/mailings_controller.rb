@@ -9,7 +9,37 @@ class MailingsController < StandardController
                end
   end
 
+  def create
+    @record = @model.new(record_params)
+
+    @record.receiver_id = params[:mailing][:receiver_id]
+
+    respond_to do |format|
+      if @record.save
+        format.html { redirect_to @main_path, notice: 'successfully created.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @record.receiver_id = params[:mailing][:receiver_id]
+    respond_to do |format|
+      if @record.update(record_params)
+        format.html { redirect_to @main_path, notice: 'successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+
     def setup
       @main_path = sent_path
       @new_path = new_mailing_path

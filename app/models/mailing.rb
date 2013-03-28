@@ -1,6 +1,8 @@
 class Mailing < ActiveRecord::Base
   attr_accessor :receiver_id, :sender_id
 
+  validates_presence_of :receiver_id
+
   scope :sent, -> (current_user) { 
     joins(:mroutes).where("mailings.status = ? and mroutes.user_id = ? and mroutes.status = ?", 
                           Mailing::STATUS[:sent], current_user, Mroute::STATUS[:sender]) 
@@ -30,12 +32,12 @@ class Mailing < ActiveRecord::Base
   end
 
   before_save do
-    mroutes.where(user_id: @receiver_id, status: Mroute::STATUS[:receiver]).destroy_all
-    mroutes.build user_id: @receiver_id, status: Mroute::STATUS[:receiver]
+    mroutes.where(status: Mroute::STATUS[:receiver]).destroy_all
+    @receiver_id.each { |receiver_id| mroutes.build user_id: @receiver_id[0], status: Mroute::STATUS[:receiver] }
     #If it is sent it should not be editable
     false if Mailing::STATUS.key(status_was) == :sent
   end
-
+  
   def status_to_sym
     Mailing::STATUS.key(self.status)
   end
