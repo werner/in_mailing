@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require select2/select2.min.js
+//= require chosen/chosen.jquery.min.js
 //= require_tree .
