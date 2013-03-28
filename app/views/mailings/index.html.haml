@@ -27,6 +27,9 @@
             = link_to t('.edit', :default => t("helpers.links.edit")), 
               @edit_path.call(record), :class => 'btn btn-mini'
 
+            = link_to t('.show', :default => t("helpers.links.show")), 
+              @show_path.call(record), :class => 'btn btn-mini'
+
             = link_to t('.destroy', :default => t("helpers.links.destroy")), 
               @destroy_path.call(record), :method => :delete, 
               :data => { :confirm => t('.confirm', 

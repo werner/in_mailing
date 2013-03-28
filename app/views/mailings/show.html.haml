@@ -1,0 +1,37 @@
+- model_class = @model
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= 'Number:'
+  %br
+  = @record.number
+%p
+  %strong= 'Type:'
+  %br
+  = @record.type_name
+%p
+  %strong= 'Sent Type:'
+  %br
+  = @record.human_sent_type
+%p
+  %strong= 'Subject:'
+  %br
+  = @record.subject
+%p
+  %strong= 'Body:'
+  %br
+  = @record.body
+%p
+  %strong= 'Notes:'
+  %br
+  = @record.notes
+%p
+  %strong= 'To:'
+  %br
+  = @record.receivers
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), @main_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), @edit_path.call(@record), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), @destroy_path.call(@record), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

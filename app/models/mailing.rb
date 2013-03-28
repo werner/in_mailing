@@ -54,6 +54,14 @@ class Mailing < ActiveRecord::Base
     receiver_routes.try(:department_name)
   end
 
+  def human_sent_type
+    {'Inner Mail' => 1, 'Outer Mail' => 2}.each {|key, value| return key if value == sent_type }
+  end
+
+  def receivers
+    mroutes.where(status: Mroute::STATUS[:receiver]).map {|route| route.user.full_name }.join(", ")
+  end
+
   def self.next_number
 
     generate_integer_number = lambda do |number|

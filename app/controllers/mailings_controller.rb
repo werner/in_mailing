@@ -44,6 +44,7 @@ class MailingsController < StandardController
       @main_path = sent_path
       @new_path = new_mailing_path
       @edit_path = lambda { |record| edit_mailing_path(record) }
+      @show_path = lambda { |record| mailing_path(record) }
       @destroy_path = lambda { |record| mailing_path(record) }
       @model = Mailing
     end
