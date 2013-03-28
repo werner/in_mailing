@@ -1,6 +1,5 @@
-%h1 Log in
-
-= form_tag sessions_path do
+= form_tag sessions_path, :class => "form-signin" do
+  %h2.form-signin-heading Log in
   .field
     = label_tag :login
     = text_field_tag :login, params[:login]
