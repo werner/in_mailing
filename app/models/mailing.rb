@@ -33,7 +33,7 @@ class Mailing < ActiveRecord::Base
 
   before_save do
     mroutes.where(status: Mroute::STATUS[:receiver]).destroy_all
-    @receiver_id.each { |receiver_id| mroutes.build user_id: @receiver_id[0], status: Mroute::STATUS[:receiver] }
+    @receiver_id.each { |receiver_id| mroutes.build user_id: receiver_id, status: Mroute::STATUS[:receiver] }
     #If it is sent it should not be editable
     false if Mailing::STATUS.key(status_was) == :sent
   end

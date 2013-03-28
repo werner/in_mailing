@@ -12,13 +12,18 @@ Feature: Manage routes
             the doc in sent path
     Given I create an user named "Bob" and lastname "Doe"
     And I create a department named "Accounting" for "Bob Doe"
+    And I create an user named "Peter" and lastname "Michaels"
+    And I create a department named "Production" for "Peter Michaels"
     Then I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I select "Bob Doe" from "mailing_receiver_id"
+    And I select "Peter Michaels" from "mailing_receiver_id"
     And I press "Send"
     Then I should be on the sent documents page
     And I should see "Accounting"
     And I should see "Bob Doe"
+    And I should see "Peter Michaels"
+    And I should see "Production"
 
   Scenario: check the document sent in inbox's receiver
     Given I create an user named "Bob" and lastname "Doe"
