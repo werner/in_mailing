@@ -9,8 +9,7 @@
       %th= model_class.human_attribute_name(:type)
       %th= model_class.human_attribute_name(:subject)
       %th= model_class.human_attribute_name(:status)
-      %th Receiver User
-      %th Receiver Department
+      %th To
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @records.each do |record|
@@ -20,8 +19,7 @@
         %td= record.type_name
         %td= record.subject
         %td= record.status_to_sym.to_s.titleize
-        %td= record.receiver_user_name
-        %td= record.receiver_department_name
+        %td= record.receivers
         %td
           - unless record.status_to_sym == :sent
             = link_to t('.edit', :default => t("helpers.links.edit")), 

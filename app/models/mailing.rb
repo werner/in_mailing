@@ -42,24 +42,14 @@ class Mailing < ActiveRecord::Base
     Mailing::STATUS.key(self.status)
   end
 
-  def receiver_routes
-    mroutes.where(status: Mroute::STATUS[:receiver]).first
-  end
-
-  def receiver_user_name
-    receiver_routes.try(:user_name)
-  end
-
-  def receiver_department_name
-    receiver_routes.try(:department_name)
-  end
-
   def human_sent_type
     {'Inner Mail' => 1, 'Outer Mail' => 2}.each {|key, value| return key if value == sent_type }
   end
 
   def receivers
-    mroutes.where(status: Mroute::STATUS[:receiver]).map {|route| route.user.full_name }.join(", ")
+    mroutes.where(status: Mroute::STATUS[:receiver]).map {|route| 
+      route.user_name + ", from: " + route.department_name 
+    }.join("; ")
   end
 
   def self.next_number

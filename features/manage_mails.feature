@@ -12,12 +12,13 @@ Feature: Manage Mails
     Then I should see "Logged in!"
   
   Scenario: Save a new memo
-    Given I create an user named "Bob" and lastname "Doe"
+    Given I create an user named "Richard" and lastname "Jhonson"
+    And I create a department named "Purchasing" for "Richard Jhonson"
     And I am on the new mails page
     When I fill in "Subject" with "Important Memo!"
     And I fill in "Body" with "We'll have a meeting tomorrow at 9:30 a.m."
     And I select "Inner Mail" from "mailing_sent_type"
-    And I select "Bob Doe" from "mailing_receiver_id"
+    And I select "Richard Jhonson" from "mailing_receiver_id"
     And I press "Save"
     When I am on the unsent documents page
     And I should see "Important Memo!"
@@ -25,6 +26,7 @@ Feature: Manage Mails
 
   Scenario: Send a new memo
     Given I create an user named "Bob" and lastname "Doe"
+    And I create a department named "Sales and Marketing" for "Bob Doe"
     And I am on the new mails page
     When I fill in "Subject" with "Urgent Memo!"
     And I fill in "Body" with "We need to meet right now!"
