@@ -20,10 +20,7 @@ Feature: Manage routes
     And I select "Peter Michaels" from "mailing_receiver_id"
     And I press "Send"
     Then I should be on the sent documents page
-    And I should see "Accounting"
-    And I should see "Bob Doe"
-    And I should see "Peter Michaels"
-    And I should see "Production"
+    And I should see "Bob Doe, from: Accounting; Peter Michaels, from: Production"
 
   Scenario: check the document sent in inbox's receiver
     Given I create an user named "Bob" and lastname "Doe"
