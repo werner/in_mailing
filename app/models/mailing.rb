@@ -5,16 +5,16 @@ class Mailing < ActiveRecord::Base
 
   scope :sent, -> (current_user) { 
     joins(:mroutes).where("mailings.status = ? and mroutes.user_id = ? and mroutes.status = ?", 
-                          Mailing::STATUS[:sent], current_user, Mroute::STATUS[:sender]) 
+                          Mailing::STATUS[:sent], current_user, Mroute::STATUS[:sender])
   }
 
   scope :unsent, -> (current_user) { 
     joins(:mroutes).where("mailings.status = ? and mroutes.user_id = ? and mroutes.status = ?", 
-                          Mailing::STATUS[:saved], current_user, Mroute::STATUS[:sender]) 
+                          Mailing::STATUS[:saved], current_user, Mroute::STATUS[:sender])
   }
 
   scope :inbox, -> (current_user) { 
-    joins(:mroutes).where("mroutes.user_id = ? and mroutes.status = ?", current_user, Mroute::STATUS[:receiver]) 
+    joins(:mroutes).where("mroutes.user_id = ? and mroutes.status = ?", current_user, Mroute::STATUS[:receiver])
   }
 
   has_many :mroutes, dependent: :destroy
