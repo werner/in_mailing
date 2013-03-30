@@ -21,7 +21,8 @@ describe Mailing do
 
   describe "search by recipient" do
     before(:each) do
-      FactoryGirl.create(:user, name: "Britney", lastname: "Spears")
+      department = FactoryGirl.create(:department)
+      FactoryGirl.create(:user, name: "Britney", lastname: "Spears", department: department)
       FactoryGirl.create(:user, name: "Richards", lastname: "Obama")
       50.times do |n|
         FactoryGirl.create(:mailing, receiver_id: [User.find(n % 2 + 1).id])
@@ -41,6 +42,11 @@ describe Mailing do
     it "should search by recipient 'Peter' and return 0 documents found" do
       records = Mailing.search_by_recipients("Peter")
       records.count.should eq(0)
+    end
+
+    it "should search by recipient department 'Accounting' and return 50 documents found" do
+      records = Mailing.search_by_recipients("Accounting")
+      records.count.should eq(25)
     end
   end
 end
