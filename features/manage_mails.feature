@@ -63,7 +63,7 @@ Feature: Manage Mails
     And I press "Send"
     Then I should see "Urgent Memo for Bob Doe!"
     And I should see "Urgent Memo for Richard Jhonson!"
-    When I fill in "search" with "Bob Doe"
+    When  I select "Bob Doe" from "search_user"
     And I press "Search"
     Then I should see "Urgent Memo for Bob Doe!"
     And I should not see "Urgent Memo for Richard Jhonson!"

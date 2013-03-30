@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   belongs_to :department
   delegate :name, to: :department, prefix: true, :allow_nil => true
 
+  def self.options_for_search
+    all.unshift(new(id: 0, name: "Select User"))
+  end
+
   def full_name
     "#{name} #{lastname}"
   end

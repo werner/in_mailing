@@ -31,23 +31,19 @@ describe Mailing do
     end
 
     it "should search by recipient 'Britney' and return 25 documents found" do
-      records = Mailing.search_by_recipients("Britney")
+      records = Mailing.search_by_recipients(1, 1)
       records.count.should eq(25)
     end
 
     it "should search by recipient 'Obama' and return 25 documents found" do
-      records = Mailing.search_by_recipients("Obama")
+      records = Mailing.search_by_recipients(2, 2)
       records.count.should eq(25)
     end
 
-    it "should search by recipient 'Peter' and return 0 documents found" do
-      records = Mailing.search_by_recipients("Peter")
-      records.count.should eq(0)
+    it "should search all documents" do
+      records = Mailing.search_by_recipients(0, 0)
+      records.count.should eq(50)
     end
 
-    it "should search by recipient department 'Accounting' and return 50 documents found" do
-      records = Mailing.search_by_recipients("Accounting")
-      records.count.should eq(25)
-    end
   end
 end

@@ -6,7 +6,7 @@ class MailingsController < StandardController
   def index
     @records = if params[:type] == "sent" || params[:type] == "unsent" || params[:type] == "inbox"
                  Mailing.send(params[:type].to_sym, current_user)
-                 .search_by_recipients(params[:search])
+                 .search_by_recipients(params[:search_user], params[:search_department])
                  .paginate(page: params[:page], per_page: 10)
                end
   end

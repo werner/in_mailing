@@ -3,11 +3,17 @@
   %h1=t '.title', :default => "Documents"
 = form_tag get_mail_path_by_url(request.fullpath[1..-1]), method: :get, id: "recipients_search" do
   .control-group
-    = label_tag 'search by recipient:', nil, {:class => 'control-label'}
-    .controls
-      = text_field_tag :search
-  = hidden_field_tag :type, request.fullpath[1..-1]
-  = submit_tag 'Search', :class => 'btn btn-primary'
+    .row
+      .span-5
+        = label_tag 'search by recipient name:', nil, {:class => 'control-label'}
+        = select_tag :search_user, options_from_collection_for_select(User.options_for_search, "id", "full_name")
+      .span-7
+        = label_tag 'search by recipient department:', nil, {:class => 'control-label'}
+        = select_tag :search_department, options_from_collection_for_select(Department.options_for_search, "id", "name")
+    .row
+      .span-12
+        = hidden_field_tag :type, request.fullpath[1..-1]
+        = submit_tag 'Search', :class => 'btn btn-primary'
 
 #records
   =render 'records'

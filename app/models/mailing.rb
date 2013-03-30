@@ -38,15 +38,23 @@ class Mailing < ActiveRecord::Base
     false if Mailing::STATUS.key(status_was) == :sent
   end
 
-  def self.search_by_recipients(search_text)
+  def self.search_by_recipients(user_id, department_id)
+    conditions = ["(mroutes_recipients.status = ?)", Mroute::STATUS[:receiver]]
+    if user_id.to_i > 0
+      conditions[0] += " and users_recipients.id = ?" 
+      conditions.push user_id 
+    end
+
+    if department_id.to_i > 0
+      conditions[0] += " and departments_recipients.id = ?" 
+      conditions.push department_id 
+    end
+
     joins("inner join mroutes as mroutes_recipients on mroutes_recipients.mailing_id = mailings.id " +
           "inner join users as users_recipients on users_recipients.id = mroutes_recipients.user_id " +
           "inner join departments as departments_recipients on " +
-          "departments_recipients.id = users_recipients.department_id").where(
-      ["mroutes_recipients.status = ? and " + 
-      "(users_recipients.name like ? or users_recipients.lastname like ? or departments_recipients.name like ?)", 
-        Mroute::STATUS[:receiver], "%#{search_text}%", "%#{search_text}%", "%#{search_text}%"])
-        .references(mroutes: {user: :department})
+          "departments_recipients.id = users_recipients.department_id"
+         ).where(conditions).includes(mroutes: {user: :department})
   end
   
   def status_to_sym
