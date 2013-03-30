@@ -37,6 +37,13 @@ class Mailing < ActiveRecord::Base
     #If it is sent it should not be editable
     false if Mailing::STATUS.key(status_was) == :sent
   end
+
+  def self.search_by_recipients(search_text)
+    includes(mroutes: {user: :department}).where(
+      ["mroutes.status = ? and (users.name like ? or lastname like ? or departments.name like ?)", 
+        Mroute::STATUS[:receiver], "%#{search_text}%", "%#{search_text}%", "%#{search_text}%"])
+        .references(mroutes: {user: :department})
+  end
   
   def status_to_sym
     Mailing::STATUS.key(self.status)
