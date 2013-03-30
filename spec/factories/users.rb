@@ -7,5 +7,6 @@ FactoryGirl.define do
     lastname 'Jhonson'
     password '12345'
     password_confirmation '12345'
+    department_id 1
   end
 end

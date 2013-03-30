@@ -22,8 +22,9 @@ describe Mailing do
   describe "search by recipient" do
     before(:each) do
       department = FactoryGirl.create(:department)
+      human_resources = FactoryGirl.create(:department, name: "Human Resources")
       FactoryGirl.create(:user, name: "Britney", lastname: "Spears", department: department)
-      FactoryGirl.create(:user, name: "Richards", lastname: "Obama")
+      FactoryGirl.create(:user, name: "Richards", lastname: "Obama", department: human_resources)
       50.times do |n|
         FactoryGirl.create(:mailing, receiver_id: [User.find(n % 2 + 1).id])
       end

@@ -39,8 +39,12 @@ class Mailing < ActiveRecord::Base
   end
 
   def self.search_by_recipients(search_text)
-    includes(mroutes: {user: :department}).where(
-      ["mroutes.status = ? and (users.name like ? or lastname like ? or departments.name like ?)", 
+    joins("inner join mroutes as mroutes_recipients on mroutes_recipients.mailing_id = mailings.id " +
+          "inner join users as users_recipients on users_recipients.id = mroutes_recipients.user_id " +
+          "inner join departments as departments_recipients on " +
+          "departments_recipients.id = users_recipients.department_id").where(
+      ["mroutes_recipients.status = ? and " + 
+      "(users_recipients.name like ? or users_recipients.lastname like ? or departments_recipients.name like ?)", 
         Mroute::STATUS[:receiver], "%#{search_text}%", "%#{search_text}%", "%#{search_text}%"])
         .references(mroutes: {user: :department})
   end

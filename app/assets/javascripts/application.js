@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
+//= require jquery.turbolinks
 //= require chosen/chosen.jquery.min.js
 //= require tinymce/jscripts/tiny_mce/tiny_mce.js
 //= require_tree .

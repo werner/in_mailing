@@ -47,3 +47,23 @@ Feature: Manage Mails
     When I am on the edit Memo page with number "00001"
     And I press "Save"
     Then I am on the edit Memo page with number "00001"
+
+  Scenario: Search by recipient
+    Given I create an user named "Bob" and lastname "Doe"
+    And I create a department named "Sales and Marketing" for "Bob Doe"
+    And I create an user named "Richard" and lastname "Jhonson"
+    And I create a department named "Purchasing" for "Richard Jhonson"
+    Then I am on the new mails page
+    And I fill in "Subject" with "Urgent Memo for Bob Doe!"
+    And I select "Bob Doe" from "mailing_receiver_id"
+    And I press "Send"
+    Then I am on the new mails page
+    And I fill in "Subject" with "Urgent Memo for Richard Jhonson!"
+    And I select "Richard Jhonson" from "mailing_receiver_id"
+    And I press "Send"
+    Then I should see "Urgent Memo for Bob Doe!"
+    And I should see "Urgent Memo for Richard Jhonson!"
+    When I fill in "search" with "Bob Doe"
+    And I press "Search"
+    Then I should see "Urgent Memo for Bob Doe!"
+    And I should not see "Urgent Memo for Richard Jhonson!"

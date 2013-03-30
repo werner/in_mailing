@@ -29,3 +29,11 @@ end
 Then /^I logged out$/i do
   click_link("LogOut")
 end
+
+Then /^I should see "([^"]*)" in the selector "([^"]*)"$/ do |text, selector|
+  page.should have_selector selector, text: text
+end
+ 
+Then /^I should see "([^"]*)" in a link$/ do |text|
+  page.should have_link text
+end
