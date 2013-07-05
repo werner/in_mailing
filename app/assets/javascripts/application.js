@@ -16,6 +16,8 @@
 //= require jquery.turbolinks
 //= require chosen/chosen.jquery.min.js
 //= require tinymce/jscripts/tiny_mce/tiny_mce.js
+//= require mailing
 //= require angular
 //= require angular-resource
-//= require_tree .
+//= require app
+//= require_tree ./angular
