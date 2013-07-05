@@ -17,4 +17,5 @@
 //= require chosen/chosen.jquery.min.js
 //= require tinymce/jscripts/tiny_mce/tiny_mce.js
 //= require angular
+//= require angular-resource
 //= require_tree .
