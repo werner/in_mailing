@@ -4,11 +4,21 @@ class MailingsController < StandardController
   before_action :set_status, only: [:create, :update]
 
   def index
-    @records = if params[:type] == "sent" || params[:type] == "unsent" || params[:type] == "inbox"
-                 Mailing.send(params[:type].to_sym, current_user)
-                 .search_by_recipients(params[:search_user], params[:search_department])
-                 .paginate(page: params[:page], per_page: 10)
-               end
+    
+    respond_to do |format|
+      format.html do
+        @records = if params[:type] == "sent" || params[:type] == "unsent" || params[:type] == "inbox"
+                     Mailing.send(params[:type].to_sym, current_user)
+                     .search_by_recipients(params[:search_user], params[:search_department])
+                     .paginate(page: params[:page], per_page: 10)
+                   end 
+      end
+      format.json { render json: Mailing.all }
+    end
+  end
+
+  def show
+    render json: @record
   end
 
   def create
