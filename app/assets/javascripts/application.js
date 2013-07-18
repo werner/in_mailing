@@ -10,6 +10,8 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require angular
+//= require angular-resource
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
@@ -17,7 +19,5 @@
 //= require chosen/chosen.jquery.min.js
 //= require tinymce/jscripts/tiny_mce/tiny_mce.js
 //= require mailing
-//= require angular
-//= require angular-resource
 //= require app
 //= require_tree ./angular
