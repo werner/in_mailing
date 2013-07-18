@@ -2,6 +2,6 @@
 %div{"ng-controller"=>"MailingsController"}
   #mailings-list-container
     %ul
-      %li{"ng-repeat"=>"mail in mailings"}
+      %li{"ng-repeat"=>"mail in mailings", "ng-click" => "showMail(mail)"}
         %h5 {{mail.number}}
 
