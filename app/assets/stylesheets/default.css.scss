@@ -88,3 +88,15 @@ div {
     }
   }
 }
+
+#mailing-view-container {
+  position: absolute;
+  border-left: 1px solid #d0d0d0;
+  top: 37px;
+  left: 300px;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  min-height: 700px;
+  padding: 5px 25px;
+}

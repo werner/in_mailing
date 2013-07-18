@@ -5,3 +5,8 @@
       %li{"ng-repeat"=>"mail in mailings", "ng-click" => "showMail(mail)"}
         %h5 {{mail.number}}
 
+  #mailing-view-container{"ng-show"=>"selectedMail"}
+    <h2>{{selectedMail.number}}</h2>
+    <p>{{selectedMail.type}}</p>
+    <p>{{selectedMail.subject}}</p>
+
