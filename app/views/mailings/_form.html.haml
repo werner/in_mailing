@@ -1,37 +1,36 @@
 = form_for @record, :html => { :class => 'form-horizontal' } do |f|
-  .container-fluid
-    .row-fluid
-      .span4
-        .control-group
-          = f.label :number, :class => 'control-label'
-          .controls
-            = Mailing.next_number
-        .control-group
-          = f.label :type, :class => 'control-label'
-          .controls
-            = f.select :type_id, Type.all.collect {|type| [type.name, type.id]}
-        .control-group
-          = f.label :sent_type, :class => 'control-label'
-          .controls
-            = f.select :sent_type, [['Inner Mail', 1], ['Outer Mail', 2]]
-        .control-group
-          = f.label :subject, :class => 'control-label'
-          .controls
-            = f.text_field :subject, :class => 'text_field', :style => "width: 600px"
-        .control-group
-          = f.label :body, :class => 'control-label'
-          .controls
-            = f.text_area :body, :class => 'text_area', :style => "width: 600px"
-        .control-group
-          = f.label :notes, :class => 'control-label'
-          .controls
-            = f.text_area :notes, :class => 'text_area'
-      .span2
-        .control-group
-          = f.label :to, :class => 'control-label'
-          .controls
-            = select_tag "mailing[receiver_id]", options_from_collection_for_select(User.all, "id", "full_name"), multiple: true, :style => "width:300px"
-    .form-actions
-      = f.submit 'Save', :class => 'btn btn-primary'
-      = f.submit 'Send', :class => 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), @main_path, :class => 'btn'
+  .row
+    .col-lg-4
+      .form-group
+        = f.label :number, :class => 'control-label'
+        .controls
+          = Mailing.next_number
+      .form-group
+        = f.label :type, :class => 'control-label'
+        .controls
+          = f.select :type_id, Type.all.collect {|type| [type.name, type.id]}, {}, class: "form-control"
+      .form-group
+        = f.label :sent_type, :class => 'control-label'
+        .controls
+          = f.select :sent_type, [['Inner Mail', 1], ['Outer Mail', 2]], {}, class: "form-control"
+      .form-group
+        = f.label :subject, :class => 'control-label'
+        .controls
+          = f.text_field :subject, :class => 'text_field', :style => "width: 600px", class: "form-control"
+      .form-group
+        = f.label :body, :class => 'control-label'
+        .controls
+          = f.text_area :body, :class => 'text_area', :style => "width: 600px", class: "form-control"
+      .form-group
+        = f.label :notes, :class => 'control-label'
+        .controls
+          = f.text_area :notes, :class => 'text_area', class: "form-control"
+    .col-lg-2
+      .form-group
+        = f.label :to, :class => 'control-label'
+        .controls
+          = select_tag "mailing[receiver_id]", options_from_collection_for_select(User.all, "id", "full_name"), multiple: true, :style => "width:300px", class: "form-control"
+  .form-actions
+    = f.submit 'Save', :class => 'btn btn-primary'
+    = f.submit 'Send', :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), @main_path, :class => 'btn btn-danger'

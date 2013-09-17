@@ -1,9 +1,9 @@
 = form_tag sessions_path, :class => "form-signin" do
-  %h2.form-signin-heading Log in
+  %h1.form-signin-heading Log in
   .field
     = label_tag :login
-    = text_field_tag :login, params[:login]
+    = text_field_tag :login, params[:login], class: "form-control"
   .field
     = label_tag :password
-    = password_field_tag :password
+    = password_field_tag :password, nil, class: "form-control"
   = submit_tag :LogIn, :class => 'btn btn-primary'

@@ -2,17 +2,20 @@
 .page-header
   %h1=t '.title', :default => "Documents"
 = form_tag get_mail_path_by_url(request.fullpath[1..-1]), method: :get, id: "recipients_search" do
-  .control-group
+  .form-group
     .row
-      .span-5
+      .col-lg-5
         = label_tag 'search by recipient name:', nil, {:class => 'control-label'}
-        = select_tag :search_user, options_from_collection_for_select(User.options_for_search, "id", "full_name")
-      .span-7
+        = select_tag :search_user, options_from_collection_for_select(User.options_for_search, "id", "full_name"), class: "form-control"
+      .col-lg-7
         = label_tag 'search by recipient department:', nil, {:class => 'control-label'}
-        = select_tag :search_department, options_from_collection_for_select(Department.options_for_search, "id", "name")
+        = select_tag :search_department, options_from_collection_for_select(Department.options_for_search, "id", "name"), class: "form-control"
     .row
-      .span-12
+      .col-lg-12
         = hidden_field_tag :type, request.fullpath[1..-1]
+    .row
+      .col-lg-12
+        %br
         = submit_tag 'Search', :class => 'btn btn-primary'
 
 #records
