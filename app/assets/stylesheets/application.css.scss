@@ -10,5 +10,8 @@
  *
  *= require chosen/chosen.css
  *= require_self
- *= require_tree .
+ *= require default
+ *= require login
+ *= require pagination
  */
+@import "twitter/bootstrap";
