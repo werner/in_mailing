@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.beta1'
-
-gem 'sqlite3'
+gem 'rails', '4.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,15 +36,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Deploy with Capistrano
 # gem 'capistrano', group: :development
 
-# To use debugger
-# gem 'debugger'
-
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "cucumber-rails", :git => "git://github.com/dbruns/cucumber-rails.git", :require => false
   gem "cucumber-rails-training-wheels" # some pre-fabbed step definitions  
   gem "database_cleaner", :git => "git://github.com/bmabey/database_cleaner.git"
-  #gem 'debugger'
+  gem 'debugger'
   gem "capybara"
   gem "launchy"
   gem "factory_girl_rails", "~> 4.0"
@@ -56,6 +51,7 @@ group :test, :development do
   gem "jasminerice", :git => "https://github.com/bradphelan/jasminerice.git"
   gem "guard-jasmine"
   gem "rb-inotify", "~> 0.9"
+  gem 'sqlite3'
 end
 gem 'haml-rails'
 gem 'simplecov'
