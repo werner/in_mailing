@@ -22,15 +22,15 @@
   =render 'records'
 
 .row
-  .span-12
+  .col-lg-12
     .digg_pagination
       .page_info
         = page_entries_info @records
       = will_paginate @records, :container => false
 
 .row
-  .span-12
+  .col-lg-12
     &nbsp;
 .row
-  .span-12
+  .col-lg-12
     = link_to t('.new', :default => t("helpers.links.new")), @new_path, :class => 'btn btn-primary'
