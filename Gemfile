@@ -6,7 +6,6 @@ gem 'rails', '4.0.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0.beta1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -16,9 +15,10 @@ group :assets do
   gem "therubyracer"
   gem "less-rails"
 
-  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 end
 
+gem 'sass-rails',   '~> 4.0.0.beta1'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
