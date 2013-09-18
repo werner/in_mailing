@@ -47,12 +47,6 @@ ActiveRecord::Schema.define(version: 20130322155842) do
     t.datetime "updated_at"
   end
 
-  create_table "statuses", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
